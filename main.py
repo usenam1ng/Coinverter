@@ -50,16 +50,16 @@ def history(start, end, key):
         print('Курс фунта (', date, ') - ', currency)
 
     if (key == "Y"): #сохраняем файл на Яндекс.Диск
-        yandex = yadisk.YaDisk(token="YOUR TOKEN") #личный токен для доступа к Яндекс Диску
+        yandex = yadisk.YaDisk(token="YOURTOKEN") #личный токен для доступа к Яндекс Диску
         strings = []
         for i in range(len(x)):
             strings.append('Курс фунта (' + str(x[i]) + ') - ' + str(y[i])) #записываем данные в файл
 
-        with open("history.txt", "w") as f: #Создаем и записываем полученные данные в файл
+        namefile = start.replace('/', '|') + "to" + end.replace('/', '|') + ".txt";
+        with open(namefile, "w") as f: #Создаем и записываем полученные данные в файл
             for s in strings:
                 f.write(s + "\n")
-        yandex.remove("history.txt", permanently=True) #удаляем файл с Яндекс Диска
-        yandex.upload("history.txt", "/history.txt") #записываем файл на Яндекс Диск
+        yandex.upload(namefile, "/" + namefile) #записываем файл на Яндекс Диск
     
     plot_graph(x, y) #строим график
 
