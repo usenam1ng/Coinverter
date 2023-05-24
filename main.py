@@ -116,4 +116,4 @@ def main(): #основная функция
 if __name__ == "__main__":
     main()
 
-#pip install requests bs4 datetime matplotlib yadisk
+#pip install requests bs4 datetime matplotlib yadisk lxml
